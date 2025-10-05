@@ -6,7 +6,7 @@
     <title>0xMarvul Playbook - Bug Bounty Methodology</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://placehold.co/32x32/06b6d4/0f172a?text=HK" type="image/x-icon">
+    <link rel="icon" href="https://placehold.co/32x32/06b6d4/0f172a?text=0M" type="image/x-icon">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -416,7 +416,6 @@
                 </div>
             </div>
         </section>
-<!-- Add this after Phase 2 section, before the footer -->
 
         <section id="phase3" class="phase-section mb-6 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-shadow duration-300">
             <div class="flex justify-between items-center cursor-pointer toggle-button">
@@ -504,7 +503,7 @@
                             <label>
                                 <input type="checkbox" data-task-id="p3_t2_i1">
                                 <span class="priority-high"></span>
-                                **A01: Broken Access Control** (IDORs, Privilege Escalation, Path Traversal).
+                                <strong>A01: Broken Access Control</strong> (IDORs, Privilege Escalation, Path Traversal).
                             </label>
                             <div class="task-tip">💡 <strong>Success Story:</strong> IDOR in user profile API - Changed any user's email - $3,500 bounty</div>
                             <div class="task-tip">🔗 <strong>CVE Example:</strong> <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22205" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">CVE-2021-22205</a> (GitLab Auth Bypass)</div>
@@ -513,7 +512,7 @@
                             <label>
                                 <input type="checkbox" data-task-id="p3_t2_i2">
                                 <span class="priority-high"></span>
-                                **A02: Cryptographic Failures** (Sensitive Data Exposure over HTTP, weak crypto, hardcoded secrets).
+                                <strong>A02: Cryptographic Failures</strong> (Sensitive Data Exposure over HTTP, weak crypto, hardcoded secrets).
                             </label>
                             <div class="task-tip">💡 <strong>Tip:</strong> Check for hardcoded API keys in JavaScript files</div>
                         </li>
@@ -521,7 +520,7 @@
                             <label>
                                 <input type="checkbox" data-task-id="p3_t2_i3">
                                 <span class="priority-high"></span>
-                                **A03: Injection** (SQLi, XSS, Command Injection, NoSQLi, LDAPi, SSTI, CSTI).
+                                <strong>A03: Injection</strong> (SQLi, XSS, Command Injection, NoSQLi, LDAPi, SSTI, CSTI).
                             </label>
                             <div class="task-tip">💡 <strong>Success Story:</strong> Blind SQLi in search parameter - Extracted DB - $7,500 bounty</div>
                             <div class="task-tip">🔗 <strong>CVE Example:</strong> <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">CVE-2021-44228</a> (Log4Shell)</div>
@@ -530,7 +529,7 @@
                             <label>
                                 <input type="checkbox" data-task-id="p3_t2_i4">
                                 <span class="priority-medium"></span>
-                                **A04: Insecure Design** (Business logic flaws, race conditions).
+                                <strong>A04: Insecure Design</strong> (Business logic flaws, race conditions).
                             </label>
                             <div class="task-tip">💡 <strong>Success Story:</strong> Race condition in payment processing - Negative balance - $8,000 bounty</div>
                         </li>
@@ -538,7 +537,7 @@
                             <label>
                                 <input type="checkbox" data-task-id="p3_t2_i5">
                                 <span class="priority-high"></span>
-                                **A05: Security Misconfiguration** (Default creds, verbose errors, missing headers, directory listing, cloud misconfig).
+                                <strong>A05: Security Misconfiguration</strong> (Default creds, verbose errors, missing headers, directory listing, cloud misconfig).
                             </label>
                             <div class="task-tip">💡 <strong>Tip:</strong> Check for exposed .env files, backup files (.bak, .old)</div>
                         </li>
@@ -546,7 +545,7 @@
                             <label>
                                 <input type="checkbox" data-task-id="p3_t2_i6">
                                 <span class="priority-high"></span>
-                                **A06: Vulnerable and Outdated Components** (Check CVEs for identified software/libraries).
+                                <strong>A06: Vulnerable and Outdated Components</strong> (Check CVEs for identified software/libraries).
                             </label>
                             <div class="task-tip">🔗 <strong>Tool:</strong> Use <a href="https://github.com/RetireJS/retire.js" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">Retire.js</a> to find vulnerable JS libraries</div>
                         </li>
@@ -554,7 +553,7 @@
                             <label>
                                 <input type="checkbox" data-task-id="p3_t2_i7">
                                 <span class="priority-high"></span>
-                                **A07: Identification and Authentication Failures** (Weak passwords, brute-force, session issues, flawed MFA).
+                                <strong>A07: Identification and Authentication Failures</strong> (Weak passwords, brute-force, session issues, flawed MFA).
                             </label>
                             <div class="task-tip">💡 <strong>Tip:</strong> Test MFA bypass via session manipulation, backup codes</div>
                         </li>
@@ -562,7 +561,7 @@
                             <label>
                                 <input type="checkbox" data-task-id="p3_t2_i8">
                                 <span class="priority-medium"></span>
-                                **A08: Software and Data Integrity Failures** (Insecure Deserialization).
+                                <strong>A08: Software and Data Integrity Failures</strong> (Insecure Deserialization).
                             </label>
                             <div class="task-tip">🔗 <strong>CVE Example:</strong> <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5254" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">CVE-2015-5254</a> (Java Deserialization)</div>
                         </li>
@@ -570,14 +569,14 @@
                             <label>
                                 <input type="checkbox" data-task-id="p3_t2_i9">
                                 <span class="priority-low"></span>
-                                **A09: Security Logging and Monitoring Failures**.
+                                <strong>A09: Security Logging and Monitoring Failures</strong>.
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" data-task-id="p3_t2_i10">
                                 <span class="priority-high"></span>
-                                **A10: Server-Side Request Forgery (SSRF)**.
+                                <strong>A10: Server-Side Request Forgery (SSRF)</strong>.
                             </label>
                             <div class="task-tip">💡 <strong>Success Story:</strong> SSRF to internal AWS metadata endpoint - Retrieved credentials - $10,000</div>
                             <div class="task-tip">🔗 <strong>CVE Example:</strong> <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-26855" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">CVE-2021-26855</a> (Microsoft Exchange SSRF)</div>
@@ -610,7 +609,7 @@
                         <li>
                             <label>
                                 <input type="checkbox" data-task-id="p3_t3_i3">
-                                <span class="priority-hard"></span>
+                                <span class="priority-high"></span>
                                 HTTP Request Smuggling.
                             </label>
                             <div class="task-tip">💡 <strong>Success Story:</strong> CL.TE smuggling on load balancer - Cache poisoning - $12,000</div>
@@ -744,10 +743,7 @@
                 <div class="flex items-center gap-2">
                     <button class="timer-btn start-btn p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all" data-phase="phase4" title="Start Timer">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </button>
-                    <button class="timer-btn pause-btn p-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all hidden" data-phase="phase4" title="Pause Timer">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </button>
+                                       </button>
                     <button class="timer-btn reset-btn p-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all" data-phase="phase4" title="Reset Timer">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                     </button>
@@ -899,7 +895,7 @@
                             <label>
                                 <input type="checkbox" data-task-id="p5_t2_i1">
                                 <span class="priority-high"></span>
-                                **Title:** Descriptive and to the point.
+                                <strong>Title:</strong> Descriptive and to the point.
                             </label>
                             <div class="task-tip">💡 <strong>Example:</strong> "IDOR allows any user to modify other users' email addresses"</div>
                         </li>
@@ -907,21 +903,21 @@
                             <label>
                                 <input type="checkbox" data-task-id="p5_t2_i2">
                                 <span class="priority-high"></span>
-                                **Vulnerability Type.**
+                                <strong>Vulnerability Type</strong>.
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" data-task-id="p5_t2_i3">
                                 <span class="priority-high"></span>
-                                **Asset/URL:** Specific location.
+                                <strong>Asset/URL:</strong> Specific location.
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" data-task-id="p5_t2_i4">
                                 <span class="priority-high"></span>
-                                **Severity/Impact:** Your assessment.
+                                <strong>Severity/Impact:</strong> Your assessment.
                             </label>
                             <div class="task-tip">💡 <strong>Tip:</strong> Explain business impact clearly - "Attacker can..."</div>
                         </li>
@@ -929,14 +925,14 @@
                             <label>
                                 <input type="checkbox" data-task-id="p5_t2_i5">
                                 <span class="priority-high"></span>
-                                **Detailed Description.**
+                                <strong>Detailed Description</strong>.
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" data-task-id="p5_t2_i6">
                                 <span class="priority-high"></span>
-                                **Steps to Reproduce (PoC):** Numbered, clear, easy to follow.
+                                <strong>Steps to Reproduce (PoC):</strong> Numbered, clear, easy to follow.
                             </label>
                             <div class="task-tip">💡 <strong>Success Tip:</strong> Clear PoC steps reduce validation time = faster payout</div>
                         </li>
@@ -944,7 +940,7 @@
                             <label>
                                 <input type="checkbox" data-task-id="p5_t2_i7">
                                 <span class="priority-high"></span>
-                                **Screenshots/Videos:** Attach as evidence.
+                                <strong>Screenshots/Videos:</strong> Attach as evidence.
                             </label>
                             <div class="task-tip">💡 <strong>Tip:</strong> Use tools like <a href="https://www.loom.com/" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">Loom</a> for quick screen recording</div>
                         </li>
@@ -952,7 +948,7 @@
                             <label>
                                 <input type="checkbox" data-task-id="p5_t2_i8">
                                 <span class="priority-medium"></span>
-                                **Remediation Suggestions (Optional).**
+                                <strong>Remediation Suggestions (Optional)</strong>.
                             </label>
                             <div class="task-tip">💡 <strong>Success Story:</strong> Providing fix suggestion increased bounty by 25%</div>
                         </li>
@@ -1120,10 +1116,10 @@
                 </div>
             </div>
         </section>
-        
+
         <footer class="text-center py-8 text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 mt-8">
             <p class="mb-2 font-medium"><strong>Disclaimer:</strong> This checklist is for educational purposes. Always act ethically and within the legal boundaries and rules of engagement of any bug bounty program.</p>
-            <p>HuntKit by <a href="https://github.com/0xmarvul" class="text-cyan-500 hover:text-cyan-400 font-semibold">@0xMarvul</a> | Crafted with <span class="text-red-500">♥</span> for the Bug Bounty Community</p>
+            <p>0xMarvul Playbook | Crafted with <span class="text-red-500">♥</span> for the Bug Bounty Community by <a href="https://github.com/0xmarvul" class="text-cyan-500 hover:text-cyan-400 font-semibold">@0xmarvul</a></p>
         </footer>
     </main>
 
