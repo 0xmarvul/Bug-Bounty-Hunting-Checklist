@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bug Bounty Hunting Checklist</title>
+    <title>HuntKit - Bug Bounty Methodology</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://placehold.co/32x32/06b6d4/0f172a?text=BB" type="image/x-icon">
+    <link rel="icon" href="https://placehold.co/32x32/06b6d4/0f172a?text=HK" type="image/x-icon">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -27,14 +27,14 @@
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 antialiased transition-colors duration-300">
 
     <header class="bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-slate-900 dark:to-slate-800 text-white p-6 shadow-lg border-b-4 border-cyan-400 dark:border-cyan-500">
-        <div class="container mx-auto max-w-5xl">
+        <div class="container mx-auto max-w-6xl">
             <div class="flex justify-between items-center">
                 <div>
                     <h1 class="text-3xl md:text-4xl font-bold flex items-center gap-3">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                        Bug Bounty Hunting Checklist
+                        HuntKit
                     </h1>
-                    <p class="mt-2 text-cyan-100 dark:text-cyan-200">Your structured guide to finding and reporting vulnerabilities.</p>
+                    <p class="mt-2 text-cyan-100 dark:text-cyan-200">Professional Bug Bounty Methodology Tracker</p>
                 </div>
                 <button id="themeToggle" class="p-3 rounded-lg bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 border border-white/20" aria-label="Toggle theme">
                     <svg id="sunIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
@@ -45,7 +45,7 @@
     </header>
 
     <div class="sticky top-0 z-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md py-4 border-b border-slate-200 dark:border-slate-800">
-        <div class="container mx-auto max-w-5xl px-4">
+        <div class="container mx-auto max-w-6xl px-4">
             <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div class="w-full sm:w-1/2">
                     <div class="flex justify-between mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
@@ -65,47 +65,175 @@
         </div>
     </div>
 
-    <main class="container mx-auto max-w-5xl p-4 md:p-6">
+    <main class="container mx-auto max-w-6xl p-4 md:p-6">
         
         <section id="phase1" class="phase-section mb-6 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-shadow duration-300">
             <div class="flex justify-between items-center cursor-pointer toggle-button">
-                <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
-                    <span class="text-cyan-500 dark:text-cyan-400">⚙️</span>
-                    Phase 1: Preparation & Mindset
-                </h2>
-                <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="flex items-center gap-3">
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
+                        <span class="text-cyan-500 dark:text-cyan-400">⚙️</span>
+                        Phase 1: Preparation & Mindset
+                    </h2>
+                    <span class="timer-display text-sm font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full" data-phase="phase1">00:00:00</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="timer-btn start-btn p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all" data-phase="phase1" title="Start Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn pause-btn p-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all hidden" data-phase="phase1" title="Pause Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn reset-btn p-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all" data-phase="phase1" title="Reset Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </button>
+                    <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
             </div>
+            
             <div class="tasks-container mt-4 space-y-4" style="display: none;">
+                
+                <div class="phase-notes mb-4">
+                    <button class="notes-toggle-btn text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 flex items-center gap-2 mb-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        <span>Phase Notes</span>
+                    </button>
+                    <textarea class="phase-notes-textarea hidden w-full p-3 rounded-lg border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none resize-none" rows="4" placeholder="Add your notes for this phase..." data-phase="phase1"></textarea>
+                </div>
+
+                <div class="resources-section mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="text-sm font-bold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Quick Resources & Tools
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="https://github.com/danielmiessler/SecLists" target="_blank" class="resource-link">SecLists</a>
+                        <a href="https://portswigger.net/burp" target="_blank" class="resource-link">Burp Suite</a>
+                        <a href="https://www.zaproxy.org/" target="_blank" class="resource-link">OWASP ZAP</a>
+                        <a href="https://owasp.org/www-project-top-ten/" target="_blank" class="resource-link">OWASP Top 10</a>
+                    </div>
+                </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Understand Program Scope:</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge easy">Easy</span>
+                        Understand Program Scope
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p1_t1_i1"> Thoroughly read and understand the bug bounty program's policy (scope, out-of-scope, rewards, disclosure rules).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p1_t1_i2"> Identify all in-scope assets (domains, subdomains, applications, IPs).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p1_t1_i3"> Note any specific vulnerabilities the program is *not* interested in.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p1_t1_i4"> Note any testing restrictions (e.g., no DoS, rate limits).</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t1_i1">
+                                <span class="priority-high"></span>
+                                Thoroughly read and understand the bug bounty program's policy (scope, out-of-scope, rewards, disclosure rules).
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Missing scope details causes 30% of invalid reports</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t1_i2">
+                                <span class="priority-high"></span>
+                                Identify all in-scope assets (domains, subdomains, applications, IPs).
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t1_i3">
+                                <span class="priority-medium"></span>
+                                Note any specific vulnerabilities the program is *not* interested in.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t1_i4">
+                                <span class="priority-high"></span>
+                                Note any testing restrictions (e.g., no DoS, rate limits).
+                            </label>
+                            <div class="task-tip">⚠️ <strong>Warning:</strong> Violating test restrictions can get you banned</div>
+                        </li>
                     </ul>
                 </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Set Up Your Environment:</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge easy">Easy</span>
+                        Set Up Your Environment
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p1_t2_i1"> VPN or proxy configured for anonymity/testing (if permitted/needed).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p1_t2_i2"> Dedicated browser profile for testing.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p1_t2_i3"> Note-taking application ready (e.g., Obsidian, CherryTree, Notion, text files).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p1_t2_i4"> Burp Suite / OWASP ZAP (or preferred proxy) installed and configured.</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t2_i1">
+                                <span class="priority-medium"></span>
+                                VPN or proxy configured for anonymity/testing (if permitted/needed).
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t2_i2">
+                                <span class="priority-medium"></span>
+                                Dedicated browser profile for testing.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t2_i3">
+                                <span class="priority-low"></span>
+                                Note-taking application ready (e.g., Obsidian, CherryTree, Notion, text files).
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t2_i4">
+                                <span class="priority-high"></span>
+                                Burp Suite / OWASP ZAP (or preferred proxy) installed and configured.
+                            </label>
+                        </li>
                     </ul>
                 </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Review Basic Security Concepts:</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge medium">Medium</span>
+                        Review Basic Security Concepts
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p1_t3_i1"> Refresh knowledge of OWASP Top 10.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p1_t3_i2"> Review common web application vulnerabilities.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p1_t3_i3"> Understand HTTP basics (methods, headers, status codes).</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t3_i1">
+                                <span class="priority-high"></span>
+                                Refresh knowledge of OWASP Top 10.
+                            </label>
+                            <div class="task-tip">🔗 <strong>Resource:</strong> <a href="https://owasp.org/www-project-top-ten/" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">OWASP Top 10 2021</a></div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t3_i2">
+                                <span class="priority-medium"></span>
+                                Review common web application vulnerabilities.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t3_i3">
+                                <span class="priority-medium"></span>
+                                Understand HTTP basics (methods, headers, status codes).
+                            </label>
+                        </li>
                     </ul>
                 </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Choose Your Target(s) within the Program:</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge easy">Easy</span>
+                        Choose Your Target(s) within the Program
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p1_t4_i1"> Select an initial asset or feature to focus on.</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p1_t4_i1">
+                                <span class="priority-high"></span>
+                                Select an initial asset or feature to focus on.
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Start with less popular subdomains for lower competition</div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -113,101 +241,492 @@
 
         <section id="phase2" class="phase-section mb-6 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-shadow duration-300">
             <div class="flex justify-between items-center cursor-pointer toggle-button">
-                <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
-                    <span class="text-cyan-500 dark:text-cyan-400">🔍</span>
-                    Phase 2: Reconnaissance
-                </h2>
-                <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="flex items-center gap-3">
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
+                        <span class="text-cyan-500 dark:text-cyan-400">🔍</span>
+                        Phase 2: Reconnaissance
+                    </h2>
+                    <span class="timer-display text-sm font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full" data-phase="phase2">00:00:00</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="timer-btn start-btn p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all" data-phase="phase2" title="Start Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn pause-btn p-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all hidden" data-phase="phase2" title="Pause Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn reset-btn p-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all" data-phase="phase2" title="Reset Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </button>
+                    <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
             </div>
+            
             <div class="tasks-container mt-4 space-y-4" style="display: none;">
+                
+                <div class="phase-notes mb-4">
+                    <button class="notes-toggle-btn text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 flex items-center gap-2 mb-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        <span>Phase Notes</span>
+                    </button>
+                    <textarea class="phase-notes-textarea hidden w-full p-3 rounded-lg border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none resize-none" rows="4" placeholder="Add your notes for this phase..." data-phase="phase2"></textarea>
+                </div>
+
+                <div class="resources-section mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="text-sm font-bold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Recon Tools & Resources
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="https://github.com/projectdiscovery/subfinder" target="_blank" class="resource-link">Subfinder</a>
+                        <a href="https://github.com/OWASP/Amass" target="_blank" class="resource-link">Amass</a>
+                        <a href="https://crt.sh/" target="_blank" class="resource-link">crt.sh</a>
+                        <a href="https://www.shodan.io/" target="_blank" class="resource-link">Shodan</a>
+                        <a href="https://github.com/tomnomnom/waybackurls" target="_blank" class="resource-link">Waybackurls</a>
+                    </div>
+                </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Passive Reconnaissance:</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge easy">Easy</span>
+                        Passive Reconnaissance
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p2_t1_i1"> Program Policy Review (Again): Double-check scope related to recon.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t1_i2"> Google Dorking / Search Engine Hacking (e.g., `site:target.com`, `inurl:admin`).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t1_i3"> WHOIS Lookup.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t1_i4"> DNS Enumeration (Passive - e.g., dnsdumpster, securitytrails).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t1_i5"> Certificate Transparency Logs (e.g., crt.sh).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t1_i6"> Wayback Machine / Archive.org.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t1_i7"> GitHub/GitLab Recon (Public Repositories).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t1_i8"> Shodan / Censys / Zoomeye.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t1_i9"> Social Media & Public Information (Ethically and within scope).</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t1_i1">
+                                <span class="priority-high"></span>
+                                Program Policy Review (Again): Double-check scope related to recon.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t1_i2">
+                                <span class="priority-high"></span>
+                                Google Dorking / Search Engine Hacking (e.g., `site:target.com`, `inurl:admin`).
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> Found exposed .git directory via Google dork - $1,500 bounty</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t1_i3">
+                                <span class="priority-medium"></span>
+                                WHOIS Lookup.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t1_i4">
+                                <span class="priority-high"></span>
+                                DNS Enumeration (Passive - e.g., dnsdumpster, securitytrails).
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t1_i5">
+                                <span class="priority-high"></span>
+                                Certificate Transparency Logs (e.g., crt.sh).
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> CT logs often reveal hidden subdomains before they're public</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t1_i6">
+                                <span class="priority-medium"></span>
+                                Wayback Machine / Archive.org.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t1_i7">
+                                <span class="priority-high"></span>
+                                GitHub/GitLab Recon (Public Repositories).
+                            </label>
+                            <div class="task-tip">🔗 <strong>Tool:</strong> Use <a href="https://github.com/michenriksen/gitrob" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">Gitrob</a> for automated scanning</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t1_i8">
+                                <span class="priority-medium"></span>
+                                Shodan / Censys / Zoomeye.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t1_i9">
+                                <span class="priority-low"></span>
+                                Social Media & Public Information (Ethically and within scope).
+                            </label>
+                        </li>
                     </ul>
                 </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Active Reconnaissance:</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge medium">Medium</span>
+                        Active Reconnaissance
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p2_t2_i1"> Subdomain Enumeration (Active - e.g., Subfinder, Amass).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t2_i2"> Port Scanning (Nmap - common ports, service versions).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t2_i3"> Technology Fingerprinting (Wappalyzer, WhatWeb).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t2_i4"> Directory & File Brute-forcing (Dirb, Gobuster).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t2_i5"> Virtual Host Enumeration.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p2_t2_i6"> API Endpoint Discovery (JS files, DevTools, Fuzzing).</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t2_i1">
+                                <span class="priority-high"></span>
+                                Subdomain Enumeration (Active - e.g., Subfinder, Amass).
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Combine multiple tools - each finds unique subdomains</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t2_i2">
+                                <span class="priority-medium"></span>
+                                Port Scanning (Nmap - common ports, service versions).
+                            </label>
+                            <div class="task-tip">⚠️ <strong>Warning:</strong> Check if port scanning is allowed in program policy</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t2_i3">
+                                <span class="priority-high"></span>
+                                Technology Fingerprinting (Wappalyzer, WhatWeb).
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t2_i4">
+                                <span class="priority-high"></span>
+                                Directory & File Brute-forcing (Dirb, Gobuster).
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t2_i5">
+                                <span class="priority-medium"></span>
+                                Virtual Host Enumeration.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p2_t2_i6">
+                                <span class="priority-high"></span>
+                                API Endpoint Discovery (JS files, DevTools, Fuzzing).
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> Found undocumented API endpoint in JS files - Critical IDOR - $5,000</div>
+                        </li>
                     </ul>
                 </div>
             </div>
         </section>
+<!-- Add this after Phase 2 section, before the footer -->
 
         <section id="phase3" class="phase-section mb-6 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-shadow duration-300">
             <div class="flex justify-between items-center cursor-pointer toggle-button">
-                <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
-                    <span class="text-cyan-500 dark:text-cyan-400">🛡️</span>
-                    Phase 3: Vulnerability Analysis & Manual Testing
-                </h2>
-                <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="flex items-center gap-3">
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
+                        <span class="text-cyan-500 dark:text-cyan-400">🛡️</span>
+                        Phase 3: Vulnerability Analysis & Manual Testing
+                    </h2>
+                    <span class="timer-display text-sm font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full" data-phase="phase3">00:00:00</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="timer-btn start-btn p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all" data-phase="phase3" title="Start Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn pause-btn p-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all hidden" data-phase="phase3" title="Pause Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn reset-btn p-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all" data-phase="phase3" title="Reset Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </button>
+                    <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
             </div>
+            
             <div class="tasks-container mt-4 space-y-4" style="display: none;">
+                
+                <div class="phase-notes mb-4">
+                    <button class="notes-toggle-btn text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 flex items-center gap-2 mb-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        <span>Phase Notes</span>
+                    </button>
+                    <textarea class="phase-notes-textarea hidden w-full p-3 rounded-lg border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none resize-none" rows="4" placeholder="Add your notes for this phase..." data-phase="phase3"></textarea>
+                </div>
+
+                <div class="resources-section mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="text-sm font-bold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Testing Tools & CVE References
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="https://portswigger.net/web-security" target="_blank" class="resource-link">Web Security Academy</a>
+                        <a href="https://github.com/payloadbox/sql-injection-payload-list" target="_blank" class="resource-link">SQLi Payloads</a>
+                        <a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" class="resource-link">PayloadsAllTheThings</a>
+                        <a href="https://cve.mitre.org/" target="_blank" class="resource-link">CVE Database</a>
+                    </div>
+                </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Map Application Structure:</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge easy">Easy</span>
+                        Map Application Structure
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p3_t1_i1"> Manually browse the entire application.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t1_i2"> Understand functionality and user roles.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t1_i3"> Use Burp Suite's site map or ZAP's site tree.</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t1_i1">
+                                <span class="priority-high"></span>
+                                Manually browse the entire application.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t1_i2">
+                                <span class="priority-high"></span>
+                                Understand functionality and user roles.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t1_i3">
+                                <span class="priority-medium"></span>
+                                Use Burp Suite's site map or ZAP's site tree.
+                            </label>
+                        </li>
                     </ul>
                 </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">OWASP Top 10 & Common Vulnerabilities:</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge hard">Hard</span>
+                        OWASP Top 10 & Common Vulnerabilities
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p3_t2_i1"> **A01: Broken Access Control** (IDORs, Privilege Escalation, Path Traversal).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t2_i2"> **A02: Cryptographic Failures** (Sensitive Data Exposure over HTTP, weak crypto, hardcoded secrets).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t2_i3"> **A03: Injection** (SQLi, XSS, Command Injection, NoSQLi, LDAPi, SSTI, CSTI).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t2_i4"> **A04: Insecure Design** (Business logic flaws, race conditions).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t2_i5"> **A05: Security Misconfiguration** (Default creds, verbose errors, missing headers, directory listing, cloud misconfig).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t2_i6"> **A06: Vulnerable and Outdated Components** (Check CVEs for identified software/libraries).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t2_i7"> **A07: Identification and Authentication Failures** (Weak passwords, brute-force, session issues, flawed MFA).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t2_i8"> **A08: Software and Data Integrity Failures** (Insecure Deserialization).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t2_i9"> **A09: Security Logging and Monitoring Failures**.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t2_i10"> **A10: Server-Side Request Forgery (SSRF)**.</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t2_i1">
+                                <span class="priority-high"></span>
+                                **A01: Broken Access Control** (IDORs, Privilege Escalation, Path Traversal).
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> IDOR in user profile API - Changed any user's email - $3,500 bounty</div>
+                            <div class="task-tip">🔗 <strong>CVE Example:</strong> <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22205" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">CVE-2021-22205</a> (GitLab Auth Bypass)</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t2_i2">
+                                <span class="priority-high"></span>
+                                **A02: Cryptographic Failures** (Sensitive Data Exposure over HTTP, weak crypto, hardcoded secrets).
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Check for hardcoded API keys in JavaScript files</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t2_i3">
+                                <span class="priority-high"></span>
+                                **A03: Injection** (SQLi, XSS, Command Injection, NoSQLi, LDAPi, SSTI, CSTI).
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> Blind SQLi in search parameter - Extracted DB - $7,500 bounty</div>
+                            <div class="task-tip">🔗 <strong>CVE Example:</strong> <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">CVE-2021-44228</a> (Log4Shell)</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t2_i4">
+                                <span class="priority-medium"></span>
+                                **A04: Insecure Design** (Business logic flaws, race conditions).
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> Race condition in payment processing - Negative balance - $8,000 bounty</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t2_i5">
+                                <span class="priority-high"></span>
+                                **A05: Security Misconfiguration** (Default creds, verbose errors, missing headers, directory listing, cloud misconfig).
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Check for exposed .env files, backup files (.bak, .old)</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t2_i6">
+                                <span class="priority-high"></span>
+                                **A06: Vulnerable and Outdated Components** (Check CVEs for identified software/libraries).
+                            </label>
+                            <div class="task-tip">🔗 <strong>Tool:</strong> Use <a href="https://github.com/RetireJS/retire.js" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">Retire.js</a> to find vulnerable JS libraries</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t2_i7">
+                                <span class="priority-high"></span>
+                                **A07: Identification and Authentication Failures** (Weak passwords, brute-force, session issues, flawed MFA).
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Test MFA bypass via session manipulation, backup codes</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t2_i8">
+                                <span class="priority-medium"></span>
+                                **A08: Software and Data Integrity Failures** (Insecure Deserialization).
+                            </label>
+                            <div class="task-tip">🔗 <strong>CVE Example:</strong> <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5254" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">CVE-2015-5254</a> (Java Deserialization)</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t2_i9">
+                                <span class="priority-low"></span>
+                                **A09: Security Logging and Monitoring Failures**.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t2_i10">
+                                <span class="priority-high"></span>
+                                **A10: Server-Side Request Forgery (SSRF)**.
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> SSRF to internal AWS metadata endpoint - Retrieved credentials - $10,000</div>
+                            <div class="task-tip">🔗 <strong>CVE Example:</strong> <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-26855" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">CVE-2021-26855</a> (Microsoft Exchange SSRF)</div>
+                        </li>
                     </ul>
                 </div>
-                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Other Common Vulnerabilities:</h3>
+
+                <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge medium">Medium</span>
+                        Other Common Vulnerabilities
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p3_t3_i1"> File Upload Vulnerabilities.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t3_i2"> XML External Entities (XXE).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t3_i3"> HTTP Request Smuggling.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t3_i4"> Open Redirects.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t3_i5"> Subdomain Takeover.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t3_i6"> Business Logic Flaws.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t3_i7"> Race Conditions.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t3_i8"> Information Disclosure (e.g., `.git` folder, debug pages).</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t3_i1">
+                                <span class="priority-high"></span>
+                                File Upload Vulnerabilities.
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Test: Double extensions, MIME type bypass, SVG XSS, path traversal in filename</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t3_i2">
+                                <span class="priority-medium"></span>
+                                XML External Entities (XXE).
+                            </label>
+                            <div class="task-tip">🔗 <strong>CVE Example:</strong> <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3092" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">CVE-2016-3092</a> (Apache Commons XXE)</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t3_i3">
+                                <span class="priority-hard"></span>
+                                HTTP Request Smuggling.
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> CL.TE smuggling on load balancer - Cache poisoning - $12,000</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t3_i4">
+                                <span class="priority-medium"></span>
+                                Open Redirects.
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Chain with OAuth flows for account takeover</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t3_i5">
+                                <span class="priority-high"></span>
+                                Subdomain Takeover.
+                            </label>
+                            <div class="task-tip">🔗 <strong>Tool:</strong> Use <a href="https://github.com/EdOverflow/can-i-take-over-xyz" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">Can I Take Over XYZ</a> for service fingerprints</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t3_i6">
+                                <span class="priority-high"></span>
+                                Business Logic Flaws.
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> Negative quantity in shopping cart - Free items - $5,000</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t3_i7">
+                                <span class="priority-medium"></span>
+                                Race Conditions.
+                            </label>
+                            <div class="task-tip">🔗 <strong>Tool:</strong> Use <a href="https://github.com/PortSwigger/turbo-intruder" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">Turbo Intruder</a> for parallel requests</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t3_i8">
+                                <span class="priority-high"></span>
+                                Information Disclosure (e.g., `.git` folder, debug pages).
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> /.git/config exposed - Source code leaked - $4,000</div>
+                        </li>
                     </ul>
                 </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">API Testing (if applicable):</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge hard">Hard</span>
+                        API Testing (if applicable)
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p3_t4_i1"> Test for OWASP API Security Top 10.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t4_i2"> Authentication and Authorization bypasses.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t4_i3"> Mass Assignment.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t4_i4"> Rate Limiting issues.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t4_i5"> Excessive Data Exposure.</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t4_i1">
+                                <span class="priority-high"></span>
+                                Test for OWASP API Security Top 10.
+                            </label>
+                            <div class="task-tip">🔗 <strong>Resource:</strong> <a href="https://owasp.org/www-project-api-security/" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">OWASP API Top 10</a></div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t4_i2">
+                                <span class="priority-high"></span>
+                                Authentication and Authorization bypasses.
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Test HTTP methods (PUT, DELETE), parameter pollution, JWT manipulation</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t4_i3">
+                                <span class="priority-high"></span>
+                                Mass Assignment.
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> Added "isAdmin":true in signup request - Admin access - $6,500</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t4_i4">
+                                <span class="priority-medium"></span>
+                                Rate Limiting issues.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t4_i5">
+                                <span class="priority-medium"></span>
+                                Excessive Data Exposure.
+                            </label>
+                        </li>
                     </ul>
                 </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Automated Scanning (supplement, if allowed):</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge easy">Easy</span>
+                        Automated Scanning (supplement, if allowed)
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p3_t5_i1"> Run Burp Scanner / ZAP Active Scan (scoped).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p3_t5_i2"> Use specialized scanners (Nuclei, WPScan, etc.).</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t5_i1">
+                                <span class="priority-medium"></span>
+                                Run Burp Scanner / ZAP Active Scan (scoped).
+                            </label>
+                            <div class="task-tip">⚠️ <strong>Warning:</strong> Always verify automated findings manually before reporting</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p3_t5_i2">
+                                <span class="priority-medium"></span>
+                                Use specialized scanners (Nuclei, WPScan, etc.).
+                            </label>
+                            <div class="task-tip">🔗 <strong>Tool:</strong> <a href="https://github.com/projectdiscovery/nuclei" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">Nuclei</a> - Fast vulnerability scanner</div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -215,19 +734,88 @@
 
         <section id="phase4" class="phase-section mb-6 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-shadow duration-300">
             <div class="flex justify-between items-center cursor-pointer toggle-button">
-                <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
-                    <span class="text-cyan-500 dark:text-cyan-400">⚡</span>
-                    Phase 4: Exploitation & Proof of Concept (PoC)
-                </h2>
-                 <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="flex items-center gap-3">
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
+                        <span class="text-cyan-500 dark:text-cyan-400">⚡</span>
+                        Phase 4: Exploitation & Proof of Concept (PoC)
+                    </h2>
+                    <span class="timer-display text-sm font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full" data-phase="phase4">00:00:00</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="timer-btn start-btn p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all" data-phase="phase4" title="Start Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn pause-btn p-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all hidden" data-phase="phase4" title="Pause Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn reset-btn p-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all" data-phase="phase4" title="Reset Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </button>
+                    <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
             </div>
+            
             <div class="tasks-container mt-4 space-y-4" style="display: none;">
+                
+                <div class="phase-notes mb-4">
+                    <button class="notes-toggle-btn text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 flex items-center gap-2 mb-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        <span>Phase Notes</span>
+                    </button>
+                    <textarea class="phase-notes-textarea hidden w-full p-3 rounded-lg border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none resize-none" rows="4" placeholder="Add your notes for this phase..." data-phase="phase4"></textarea>
+                </div>
+
+                <div class="resources-section mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="text-sm font-bold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Exploitation Resources
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" class="resource-link">Payloads</a>
+                        <a href="https://www.exploit-db.com/" target="_blank" class="resource-link">Exploit-DB</a>
+                        <a href="https://github.com/danielmiessler/SecLists" target="_blank" class="resource-link">SecLists</a>
+                        <a href="https://portswigger.net/web-security" target="_blank" class="resource-link">PortSwigger Labs</a>
+                    </div>
+                </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge medium">Medium</span>
+                        Exploitation Best Practices
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p4_t1_i1"> Verify Vulnerability (confirm not a false positive).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p4_t1_i2"> Understand Impact (assess risk and potential damage).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p4_t1_i3"> Develop a Clear PoC (simple, repeatable steps, code snippets, HTTP requests).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p4_t1_i4"> Ethical Exploitation: DO NOT cause harm, access/modify/delete unauthorized data, or disrupt services. Stop if uncertain.</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p4_t1_i1">
+                                <span class="priority-high"></span>
+                                Verify Vulnerability (confirm not a false positive).
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Test vulnerability at least 3 times to rule out false positives</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p4_t1_i2">
+                                <span class="priority-high"></span>
+                                Understand Impact (assess risk and potential damage).
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Use CVSS calculator to determine severity score</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p4_t1_i3">
+                                <span class="priority-high"></span>
+                                Develop a Clear PoC (simple, repeatable steps, code snippets, HTTP requests).
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> Video PoC showing account takeover increased bounty by 50%</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p4_t1_i4">
+                                <span class="priority-high"></span>
+                                Ethical Exploitation: DO NOT cause harm, access/modify/delete unauthorized data, or disrupt services. Stop if uncertain.
+                            </label>
+                            <div class="task-tip">⚠️ <strong>Critical:</strong> Create test accounts, never use real user data</div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -235,44 +823,187 @@
 
         <section id="phase5" class="phase-section mb-6 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-shadow duration-300">
             <div class="flex justify-between items-center cursor-pointer toggle-button">
-                <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
-                    <span class="text-cyan-500 dark:text-cyan-400">📝</span>
-                    Phase 5: Reporting
-                </h2>
-                <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="flex items-center gap-3">
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
+                        <span class="text-cyan-500 dark:text-cyan-400">📝</span>
+                        Phase 5: Reporting
+                    </h2>
+                    <span class="timer-display text-sm font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full" data-phase="phase5">00:00:00</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="timer-btn start-btn p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all" data-phase="phase5" title="Start Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn pause-btn p-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all hidden" data-phase="phase5" title="Pause Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn reset-btn p-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all" data-phase="phase5" title="Reset Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </button>
+                    <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
             </div>
+            
             <div class="tasks-container mt-4 space-y-4" style="display: none;">
-                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Review Program's Reporting Guidelines:</h3>
-                    <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p5_t1_i1"> Use the specified platform (HackerOne, Bugcrowd, email, etc.).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p5_t1_i2"> Follow their required format.</label></li>
-                    </ul>
+                
+                <div class="phase-notes mb-4">
+                    <button class="notes-toggle-btn text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 flex items-center gap-2 mb-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        <span>Phase Notes</span>
+                    </button>
+                    <textarea class="phase-notes-textarea hidden w-full p-3 rounded-lg border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none resize-none" rows="4" placeholder="Add your notes for this phase..." data-phase="phase5"></textarea>
                 </div>
+
+                <div class="resources-section mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="text-sm font-bold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Report Writing Resources
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="https://github.com/ZephrFish/BugBountyTemplates" target="_blank" class="resource-link">Report Templates</a>
+                        <a href="https://www.hackerone.com/blog/writing-better-vulnerability-reports" target="_blank" class="resource-link">Writing Guide</a>
+                        <a href="https://www.first.org/cvss/calculator/3.1" target="_blank" class="resource-link">CVSS Calculator</a>
+                    </div>
+                </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Write a Clear and Concise Report:</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge easy">Easy</span>
+                        Review Program's Reporting Guidelines
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p5_t2_i1"> **Title:** Descriptive and to the point.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p5_t2_i2"> **Vulnerability Type.**</label></li>
-                        <li><label><input type="checkbox" data-task-id="p5_t2_i3"> **Asset/URL:** Specific location.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p5_t2_i4"> **Severity/Impact:** Your assessment.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p5_t2_i5"> **Detailed Description.**</label></li>
-                        <li><label><input type="checkbox" data-task-id="p5_t2_i6"> **Steps to Reproduce (PoC):** Numbered, clear, easy to follow.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p5_t2_i7"> **Screenshots/Videos:** Attach as evidence.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p5_t2_i8"> **Remediation Suggestions (Optional).**</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t1_i1">
+                                <span class="priority-high"></span>
+                                Use the specified platform (HackerOne, Bugcrowd, email, etc.).
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t1_i2">
+                                <span class="priority-high"></span>
+                                Follow their required format.
+                            </label>
+                        </li>
                     </ul>
                 </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
-                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3">Professionalism:</h3>
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge medium">Medium</span>
+                        Write a Clear and Concise Report
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p5_t3_i1"> Use clear language, proper grammar, and spelling.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p5_t3_i2"> Be polite and respectful.</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t2_i1">
+                                <span class="priority-high"></span>
+                                **Title:** Descriptive and to the point.
+                            </label>
+                            <div class="task-tip">💡 <strong>Example:</strong> "IDOR allows any user to modify other users' email addresses"</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t2_i2">
+                                <span class="priority-high"></span>
+                                **Vulnerability Type.**
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t2_i3">
+                                <span class="priority-high"></span>
+                                **Asset/URL:** Specific location.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t2_i4">
+                                <span class="priority-high"></span>
+                                **Severity/Impact:** Your assessment.
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Explain business impact clearly - "Attacker can..."</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t2_i5">
+                                <span class="priority-high"></span>
+                                **Detailed Description.**
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t2_i6">
+                                <span class="priority-high"></span>
+                                **Steps to Reproduce (PoC):** Numbered, clear, easy to follow.
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Tip:</strong> Clear PoC steps reduce validation time = faster payout</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t2_i7">
+                                <span class="priority-high"></span>
+                                **Screenshots/Videos:** Attach as evidence.
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Use tools like <a href="https://www.loom.com/" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">Loom</a> for quick screen recording</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t2_i8">
+                                <span class="priority-medium"></span>
+                                **Remediation Suggestions (Optional).**
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> Providing fix suggestion increased bounty by 25%</div>
+                        </li>
                     </ul>
                 </div>
-                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
+
+                <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge easy">Easy</span>
+                        Professionalism
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p5_t4_i1"> Submit Report.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p5_t4_i2"> Securely Store Your Findings (local copy).</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t3_i1">
+                                <span class="priority-high"></span>
+                                Use clear language, proper grammar, and spelling.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t3_i2">
+                                <span class="priority-high"></span>
+                                Be polite and respectful.
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Good relationship with triage team = better bounties long-term</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge easy">Easy</span>
+                        Submit & Store
+                    </h3>
+                    <ul class="space-y-2 checklist">
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t4_i1">
+                                <span class="priority-high"></span>
+                                Submit Report.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p5_t4_i2">
+                                <span class="priority-medium"></span>
+                                Securely Store Your Findings (local copy).
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Keep your own database of reports for future reference</div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -280,40 +1011,129 @@
 
         <section id="phase6" class="phase-section mb-6 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-shadow duration-300">
             <div class="flex justify-between items-center cursor-pointer toggle-button">
-                <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
-                    <span class="text-cyan-500 dark:text-cyan-400">🚀</span>
-                    Phase 6: Post-Reporting & Continuous Learning
-                </h2>
-                <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="flex items-center gap-3">
+                    <h2 class="text-2xl font-bold text-slate-800 dark:text-cyan-400 flex items-center gap-2">
+                        <span class="text-cyan-500 dark:text-cyan-400">🚀</span>
+                        Phase 6: Post-Reporting & Continuous Learning
+                    </h2>
+                    <span class="timer-display text-sm font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full" data-phase="phase6">00:00:00</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="timer-btn start-btn p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all" data-phase="phase6" title="Start Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn pause-btn p-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all hidden" data-phase="phase6" title="Pause Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                    <button class="timer-btn reset-btn p-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all" data-phase="phase6" title="Reset Timer">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </button>
+                    <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400 transform transition-transform duration-300 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
             </div>
+            
             <div class="tasks-container mt-4 space-y-4" style="display: none;">
+                
+                <div class="phase-notes mb-4">
+                    <button class="notes-toggle-btn text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 flex items-center gap-2 mb-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        <span>Phase Notes</span>
+                    </button>
+                    <textarea class="phase-notes-textarea hidden w-full p-3 rounded-lg border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none resize-none" rows="4" placeholder="Add your notes for this phase..." data-phase="phase6"></textarea>
+                </div>
+
+                <div class="resources-section mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="text-sm font-bold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Learning Resources
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="https://www.hackerone.com/hacktivity" target="_blank" class="resource-link">Hacktivity</a>
+                        <a href="https://pentesterlab.com/" target="_blank" class="resource-link">PentesterLab</a>
+                        <a href="https://portswigger.net/web-security" target="_blank" class="resource-link">Web Security Academy</a>
+                        <a href="https://www.bugcrowd.com/hackers/bugcrowd-university/" target="_blank" class="resource-link">Bugcrowd University</a>
+                    </div>
+                </div>
+
                 <div class="task-group border-l-4 border-cyan-400 dark:border-cyan-500 pl-4 py-3 rounded-r-lg bg-slate-50 dark:bg-slate-800/50">
+                    <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <span class="difficulty-badge easy">Easy</span>
+                        Continuous Improvement
+                    </h3>
                     <ul class="space-y-2 checklist">
-                        <li><label><input type="checkbox" data-task-id="p6_t1_i1"> Monitor Report Status.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p6_t1_i2"> Respond Promptly to team questions.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p6_t1_i3"> Handle Duplicates/NAs Gracefully.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p6_t1_i4"> Learn from Disclosed Reports.</label></li>
-                        <li><label><input type="checkbox" data-task-id="p6_t1_i5"> Stay Updated (security news, blogs, researchers).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p6_t1_i6"> Practice (CTFs, vulnerable labs).</label></li>
-                        <li><label><input type="checkbox" data-task-id="p6_t1_i7"> Refine Your Methodology.</label></li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p6_t1_i1">
+                                <span class="priority-medium"></span>
+                                Monitor Report Status.
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p6_t1_i2">
+                                <span class="priority-high"></span>
+                                Respond Promptly to team questions.
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Fast response time builds trust with triage teams</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p6_t1_i3">
+                                <span class="priority-medium"></span>
+                                Handle Duplicates/NAs Gracefully.
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Duplicates happen to everyone - learn from them</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p6_t1_i4">
+                                <span class="priority-high"></span>
+                                Learn from Disclosed Reports.
+                            </label>
+                            <div class="task-tip">🔗 <strong>Resource:</strong> Read <a href="https://www.hackerone.com/hacktivity" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">HackerOne Hacktivity</a> daily</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p6_t1_i5">
+                                <span class="priority-high"></span>
+                                Stay Updated (security news, blogs, researchers).
+                            </label>
+                            <div class="task-tip">💡 <strong>Success Story:</strong> Following security researchers on Twitter led to finding similar bugs - $15K total</div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p6_t1_i6">
+                                <span class="priority-high"></span>
+                                Practice (CTFs, vulnerable labs).
+                            </label>
+                            <div class="task-tip">🔗 <strong>Resources:</strong> <a href="https://www.hackthebox.com/" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">HackTheBox</a>, <a href="https://tryhackme.com/" target="_blank" class="text-cyan-600 dark:text-cyan-400 underline">TryHackMe</a></div>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" data-task-id="p6_t1_i7">
+                                <span class="priority-high"></span>
+                                Refine Your Methodology.
+                            </label>
+                            <div class="task-tip">💡 <strong>Tip:</strong> Review your notes every month - identify patterns in successful findings</div>
+                        </li>
                     </ul>
                 </div>
             </div>
         </section>
-
+        
         <footer class="text-center py-8 text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 mt-8">
             <p class="mb-2 font-medium"><strong>Disclaimer:</strong> This checklist is for educational purposes. Always act ethically and within the legal boundaries and rules of engagement of any bug bounty program.</p>
-            <p>Crafted with <span class="text-red-500">♥</span> for the Bug Bounty Community by <a href="https://github.com/0xmarvul" class="text-cyan-500 hover:text-cyan-400 font-semibold">@0xMarvul</a></p>
+            <p>HuntKit by <a href="https://github.com/0xmarvul" class="text-cyan-500 hover:text-cyan-400 font-semibold">@0xmarvul</a> | Crafted with <span class="text-red-500">♥</span> for the Bug Bounty Community</p>
         </footer>
     </main>
 
     <div id="resetConfirmationModal" class="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-sm overflow-y-auto h-full w-full flex items-center justify-center" style="display: none; z-index: 1000;">
         <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-2xl w-full max-w-md mx-auto border border-slate-200 dark:border-slate-700 transform transition-all">
             <h3 class="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">Confirm Reset</h3>
-            <p class="text-slate-600 dark:text-slate-300 mb-6">Are you sure you want to reset all checklist items? This action cannot be undone.</p>
+            <p class="text-slate-600 dark:text-slate-300 mb-6">Are you sure you want to reset all checklist items and timers? This action cannot be undone.</p>
             <div class="flex justify-end gap-4">
                 <button id="cancelResetBtn" class="px-6 py-2.5 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors font-medium">Cancel</button>
-                <button id="confirmResetBtn" class="px-6 py-2.5 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium shadow-lg">Yes, Reset</button>
+                <button id="confirmResetBtn" class="px-6 py-2.5 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium shadow-lg">Yes, Reset All</button>
             </div>
         </div>
     </div>
