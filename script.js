@@ -86,9 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         checkboxes.forEach(checkbox => {
             const isChecked = localStorage.getItem(checkbox.dataset.taskId) === 'true';
             checkbox.checked = isChecked;
-            if (isChecked && checkbox.parentElement) {
-                checkbox.parentElement.classList.add('task-completed');
-            }
         });
         updateProgress();
     }
@@ -97,13 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {
-            if (checkbox.parentElement) {
-                if (checkbox.checked) {
-                    checkbox.parentElement.classList.add('task-completed');
-                } else {
-                    checkbox.parentElement.classList.remove('task-completed');
-                }
-            }
             updateProgress();
         });
     });
@@ -217,9 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
         confirmResetBtn.addEventListener('click', () => {
             checkboxes.forEach(checkbox => {
                 checkbox.checked = false;
-                if (checkbox.parentElement) {
-                    checkbox.parentElement.classList.remove('task-completed');
-                }
                 localStorage.removeItem(checkbox.dataset.taskId);
             });
             updateProgress();
