@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get all DOM elements
     const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
     const progressBar = document.getElementById('progressBar');
     const progressText = document.getElementById('progressText');
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmResetBtn = document.getElementById('confirmResetBtn');
     const cancelResetBtn = document.getElementById('cancelResetBtn');
     
-    // Theme toggle elements
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = document.getElementById('sunIcon');
     const moonIcon = document.getElementById('moonIcon');
@@ -19,13 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const totalTasks = checkboxes.length;
 
-    // ========== THEME MANAGEMENT ==========
-    
-    // Initialize theme - Dark mode by default
     function initializeTheme() {
         const savedTheme = localStorage.getItem('theme');
         
-        // Default to dark mode if no preference is saved
         if (!savedTheme || savedTheme === 'dark') {
             htmlElement.classList.add('dark');
             moonIcon.classList.remove('hidden');
@@ -38,16 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Toggle theme function
     function toggleTheme() {
         if (htmlElement.classList.contains('dark')) {
-            // Switch to light mode
             htmlElement.classList.remove('dark');
             localStorage.setItem('theme', 'light');
             sunIcon.classList.remove('hidden');
             moonIcon.classList.add('hidden');
         } else {
-            // Switch to dark mode
             htmlElement.classList.add('dark');
             localStorage.setItem('theme', 'dark');
             moonIcon.classList.remove('hidden');
@@ -55,16 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Theme toggle button event listener
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
 
-    // Initialize theme on page load
     initializeTheme();
 
-    // ========== PROGRESS TRACKING ==========
-    
     function updateProgress() {
         const checkedTasks = document.querySelectorAll('.checklist input[type="checkbox"]:checked').length;
         const percentage = totalTasks > 0 ? Math.round((checkedTasks / totalTasks) * 100) : 0;
@@ -76,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
             progressText.textContent = percentage + '%';
         }
 
-        // Save each checkbox state
         checkboxes.forEach(checkbox => {
             localStorage.setItem(checkbox.dataset.taskId, checkbox.checked);
         });
@@ -90,22 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
         updateProgress();
     }
 
-    // ========== CHECKBOX HANDLING ==========
-    
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {
             updateProgress();
         });
     });
 
-    // ========== PHASE SECTION TOGGLE ==========
-    
     phaseSections.forEach(section => {
         const toggleButton = section.querySelector('.toggle-button');
         const tasksContainer = section.querySelector('.tasks-container');
         const sectionId = section.id;
 
-        // Load expanded state from localStorage
         const isExpanded = localStorage.getItem(`expanded_${sectionId}`) === 'true';
         if (isExpanded) {
             section.classList.add('expanded');
@@ -126,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Toggle section on button click
         if (toggleButton && tasksContainer) {
             toggleButton.addEventListener('click', () => {
                 section.classList.toggle('expanded');
@@ -151,8 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ========== EXPAND/COLLAPSE ALL BUTTONS ==========
-    
     if (expandAllBtn) {
         expandAllBtn.addEventListener('click', () => {
             phaseSections.forEach(section => {
@@ -189,8 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ========== RESET FUNCTIONALITY ==========
-    
     if (resetBtn) {
         resetBtn.addEventListener('click', () => {
             if (resetModal) resetModal.style.display = 'flex';
@@ -214,7 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close modal on background click
     if (resetModal) {
         resetModal.addEventListener('click', (event) => {
             if (event.target === resetModal) {
@@ -223,7 +198,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ========== INITIALIZE ==========
-    
     loadProgress();
 });
