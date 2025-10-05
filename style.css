@@ -1,229 +1,199 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Get all DOM elements
-    const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
-    const progressBar = document.getElementById('progressBar');
-    const progressText = document.getElementById('progressText');
-    const phaseSections = document.querySelectorAll('.phase-section');
-    const expandAllBtn = document.getElementById('expandAllBtn');
-    const collapseAllBtn = document.getElementById('collapseAllBtn');
-    const resetBtn = document.getElementById('resetBtn');
-    const resetModal = document.getElementById('resetConfirmationModal');
-    const confirmResetBtn = document.getElementById('confirmResetBtn');
-    const cancelResetBtn = document.getElementById('cancelResetBtn');
-    
-    // Theme toggle elements
-    const themeToggle = document.getElementById('themeToggle');
-    const sunIcon = document.getElementById('sunIcon');
-    const moonIcon = document.getElementById('moonIcon');
-    const htmlElement = document.documentElement;
+body {
+    overscroll-behavior-y: contain;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    const totalTasks = checkboxes.length;
+.checklist li {
+    position: relative;
+    padding-left: 0;
+}
 
-    // ========== THEME MANAGEMENT ==========
-    
-    // Initialize theme - Dark mode by default
-    function initializeTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        
-        // Default to dark mode if no preference is saved
-        if (!savedTheme || savedTheme === 'dark') {
-            htmlElement.classList.add('dark');
-            moonIcon.classList.remove('hidden');
-            sunIcon.classList.add('hidden');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            htmlElement.classList.remove('dark');
-            sunIcon.classList.remove('hidden');
-            moonIcon.classList.add('hidden');
-        }
-    }
+.checklist label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out, transform 0.2s ease;
+    color: #334155;
+    padding: 0.5rem 0;
+    padding-left: 2.25rem;
+    line-height: 1.6;
+    position: relative;
+}
 
-    // Toggle theme function
-    function toggleTheme() {
-        if (htmlElement.classList.contains('dark')) {
-            // Switch to light mode
-            htmlElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            sunIcon.classList.remove('hidden');
-            moonIcon.classList.add('hidden');
-        } else {
-            // Switch to dark mode
-            htmlElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            moonIcon.classList.remove('hidden');
-            sunIcon.classList.add('hidden');
-        }
-    }
+html.dark .checklist label {
+    color: #cbd5e1;
+}
 
-    // Theme toggle button event listener
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
+.checklist label:hover {
+    transform: translateX(4px);
+}
 
-    // Initialize theme on page load
-    initializeTheme();
+.checklist input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
 
-    // ========== PROGRESS TRACKING ==========
-    
-    function updateProgress() {
-        const checkedTasks = document.querySelectorAll('.checklist input[type="checkbox"]:checked').length;
-        const percentage = totalTasks > 0 ? Math.round((checkedTasks / totalTasks) * 100) : 0;
-        
-        if (progressBar) {
-            progressBar.style.width = percentage + '%';
-        }
-        if (progressText) {
-            progressText.textContent = percentage + '%';
-        }
+.checklist label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.625rem;
+    width: 1.35em;
+    height: 1.35em;
+    border: 2.5px solid #94a3b8;
+    border-radius: 0.375rem;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    flex-shrink: 0;
+    background-color: #f8fafc;
+}
 
-        // Save each checkbox state
-        checkboxes.forEach(checkbox => {
-            localStorage.setItem(checkbox.dataset.taskId, checkbox.checked);
-        });
-    }
+html.dark .checklist label::before {
+    border-color: #475569;
+    background-color: #1e293b;
+}
 
-    function loadProgress() {
-        checkboxes.forEach(checkbox => {
-            const isChecked = localStorage.getItem(checkbox.dataset.taskId) === 'true';
-            checkbox.checked = isChecked;
-        });
-        updateProgress();
-    }
+.checklist input[type="checkbox"]:checked + label::before {
+    background-color: #06b6d4;
+    border-color: #06b6d4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1em;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+}
 
-    // ========== CHECKBOX HANDLING ==========
-    
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', () => {
-            updateProgress();
-        });
-    });
+html.dark .checklist input[type="checkbox"]:checked + label::before {
+    background-color: #22d3ee;
+    border-color: #22d3ee;
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
+}
 
-    // ========== PHASE SECTION TOGGLE ==========
-    
-    phaseSections.forEach(section => {
-        const toggleButton = section.querySelector('.toggle-button');
-        const tasksContainer = section.querySelector('.tasks-container');
-        const sectionId = section.id;
+.checklist input[type="checkbox"]:focus + label::before {
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3);
+}
 
-        // Load expanded state from localStorage
-        const isExpanded = localStorage.getItem(`expanded_${sectionId}`) === 'true';
-        if (isExpanded) {
-            section.classList.add('expanded');
-            if (tasksContainer) {
-                tasksContainer.style.display = 'block';
-                requestAnimationFrame(() => {
-                    if (tasksContainer) {
-                        tasksContainer.style.maxHeight = tasksContainer.scrollHeight + 'px';
-                        tasksContainer.style.opacity = '1';
-                    }
-                });
-            }
-        } else {
-            if (tasksContainer) {
-                tasksContainer.style.display = 'none';
-                tasksContainer.style.maxHeight = '0px';
-                tasksContainer.style.opacity = '0';
-            }
-        }
+html.dark .checklist input[type="checkbox"]:focus + label::before {
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.3);
+}
 
-        // Toggle section on button click
-        if (toggleButton && tasksContainer) {
-            toggleButton.addEventListener('click', () => {
-                section.classList.toggle('expanded');
-                if (section.classList.contains('expanded')) {
-                    tasksContainer.style.display = 'block';
-                    requestAnimationFrame(() => {
-                        tasksContainer.style.maxHeight = tasksContainer.scrollHeight + 'px';
-                        tasksContainer.style.opacity = '1';
-                        localStorage.setItem(`expanded_${sectionId}`, 'true');
-                    });
-                } else {
-                    tasksContainer.style.maxHeight = '0px';
-                    tasksContainer.style.opacity = '0';
-                    tasksContainer.addEventListener('transitionend', () => {
-                        if (!section.classList.contains('expanded')) {
-                            tasksContainer.style.display = 'none';
-                        }
-                    }, { once: true });
-                    localStorage.setItem(`expanded_${sectionId}`, 'false');
-                }
-            });
-        }
-    });
+.checklist input[type="checkbox"]:checked + label {
+    color: #06b6d4;
+    text-decoration: line-through;
+    text-decoration-color: #22d3ee;
+    text-decoration-thickness: 2px;
+    opacity: 0.75;
+}
 
-    // ========== EXPAND/COLLAPSE ALL BUTTONS ==========
-    
-    if (expandAllBtn) {
-        expandAllBtn.addEventListener('click', () => {
-            phaseSections.forEach(section => {
-                const tasksContainer = section.querySelector('.tasks-container');
-                if (!section.classList.contains('expanded') && tasksContainer) {
-                    section.classList.add('expanded');
-                    tasksContainer.style.display = 'block';
-                    requestAnimationFrame(() => {
-                        tasksContainer.style.maxHeight = tasksContainer.scrollHeight + 'px';
-                        tasksContainer.style.opacity = '1';
-                        localStorage.setItem(`expanded_${section.id}`, 'true');
-                    });
-                }
-            });
-        });
-    }
+html.dark .checklist input[type="checkbox"]:checked + label {
+    color: #22d3ee;
+    text-decoration-color: #06b6d4;
+}
 
-    if (collapseAllBtn) {
-        collapseAllBtn.addEventListener('click', () => {
-            phaseSections.forEach(section => {
-                const tasksContainer = section.querySelector('.tasks-container');
-                if (section.classList.contains('expanded') && tasksContainer) {
-                    section.classList.remove('expanded');
-                    tasksContainer.style.maxHeight = '0px';
-                    tasksContainer.style.opacity = '0';
-                    tasksContainer.addEventListener('transitionend', () => {
-                        if (!section.classList.contains('expanded')) {
-                            tasksContainer.style.display = 'none';
-                        }
-                    }, { once: true });
-                    localStorage.setItem(`expanded_${section.id}`, 'false');
-                }
-            });
-        });
-    }
+.phase-section .toggle-button svg {
+    transition: transform 0.3s ease-in-out;
+}
 
-    // ========== RESET FUNCTIONALITY ==========
-    
-    if (resetBtn) {
-        resetBtn.addEventListener('click', () => {
-            if (resetModal) resetModal.style.display = 'flex';
-        });
-    }
+.phase-section.expanded .toggle-button svg {
+    transform: rotate(180deg);
+}
 
-    if (cancelResetBtn) {
-        cancelResetBtn.addEventListener('click', () => {
-            if (resetModal) resetModal.style.display = 'none';
-        });
-    }
+.tasks-container {
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+}
 
-    if (confirmResetBtn) {
-        confirmResetBtn.addEventListener('click', () => {
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = false;
-                localStorage.removeItem(checkbox.dataset.taskId);
-            });
-            updateProgress();
-            if (resetModal) resetModal.style.display = 'none';
-        });
-    }
+.phase-section.expanded .tasks-container {
+    max-height: 10000px;
+    opacity: 1;
+}
 
-    // Close modal on background click
-    if (resetModal) {
-        resetModal.addEventListener('click', (event) => {
-            if (event.target === resetModal) {
-                resetModal.style.display = 'none';
-            }
-        });
-    }
+.task-group {
+    transition: all 0.3s ease;
+}
 
-    // ========== INITIALIZE ==========
-    
-    loadProgress();
-});
+.task-group:hover {
+    background-color: rgba(6, 182, 212, 0.05);
+    transform: translateX(2px);
+}
+
+html.dark .task-group:hover {
+    background-color: rgba(34, 211, 238, 0.08);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #06b6d4, #0891b2);
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #0891b2, #0e7490);
+}
+
+html.dark ::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #22d3ee, #06b6d4);
+    border: 2px solid #1e293b;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #06b6d4, #0891b2);
+}
+
+#resetConfirmationModal {
+    z-index: 1000;
+}
+
+* {
+    transition-property: background-color, border-color, color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.preload * {
+    transition: none !important;
+}
+
+.phase-section {
+    transition: all 0.3s ease;
+}
+
+.phase-section:hover {
+    transform: translateY(-2px);
+}
+
+#progressBar {
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+
+html.dark #progressBar {
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.6);
+}
+
+button {
+    transition: all 0.3s ease;
+}
+
+button:active {
+    transform: scale(0.97);
+}
