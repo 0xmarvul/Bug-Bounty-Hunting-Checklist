@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function initializeTimer(phase) {
         const savedTime = parseInt(localStorage.getItem(`timer_${phase}`) || '0');
-        const isRunning = localStorage.getItem(`timer_${phase}_running`) === 'true';
         
         timers[phase] = {
             seconds: savedTime,
@@ -72,10 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         updateTimerDisplay(phase);
-
-        if (isRunning) {
-            startTimer(phase);
-        }
     }
 
     function startTimer(phase) {
@@ -88,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const startBtn = section.querySelector('.start-btn');
         const pauseBtn = section.querySelector('.pause-btn');
         
-        startBtn.classList.add('hidden');
-        pauseBtn.classList.remove('hidden');
+        if (startBtn) startBtn.classList.add('hidden');
+        if (pauseBtn) pauseBtn.classList.remove('hidden');
         
         timers[phase].interval = setInterval(() => {
             timers[phase].seconds++;
@@ -109,14 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const startBtn = section.querySelector('.start-btn');
         const pauseBtn = section.querySelector('.pause-btn');
         
-        startBtn.classList.remove('hidden');
-        pauseBtn.classList.add('hidden');
+        if (startBtn) startBtn.classList.remove('hidden');
+        if (pauseBtn) pauseBtn.classList.add('hidden');
     }
 
     function resetTimer(phase) {
         pauseTimer(phase);
         timers[phase].seconds = 0;
         localStorage.setItem(`timer_${phase}`, '0');
+        localStorage.removeItem(`timer_${phase}_running`);
         updateTimerDisplay(phase);
     }
 
@@ -131,13 +127,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const phase = section.id;
         initializeTimer(phase);
         
-        const startBtn = section.querySelector('.start-btn');
-        const pauseBtn = section.querySelector('.pause-btn');
-        const resetTimerBtn = section.querySelector('.reset-btn');
+        const startBtn = section.querySelector(`.start-btn[data-phase="${phase}"]`);
+        const pauseBtn = section.querySelector(`.pause-btn[data-phase="${phase}"]`);
+        const resetTimerBtn = section.querySelector(`.reset-btn[data-phase="${phase}"]`);
         
         if (startBtn) {
             startBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
+                e.preventDefault();
                 startTimer(phase);
             });
         }
@@ -145,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (pauseBtn) {
             pauseBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
+                e.preventDefault();
                 pauseTimer(phase);
             });
         }
@@ -152,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (resetTimerBtn) {
             resetTimerBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
+                e.preventDefault();
                 if (confirm('Reset timer for this phase?')) {
                     resetTimer(phase);
                 }
@@ -244,7 +243,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (toggleButton && tasksContainer) {
-            toggleButton.addEventListener('click', () => {
+            toggleButton.addEventListener('click', (e) => {
+                if (e.target.closest('.timer-btn')) {
+                    return;
+                }
+                
                 section.classList.toggle('expanded');
                 if (section.classList.contains('expanded')) {
                     tasksContainer.style.display = 'block';
