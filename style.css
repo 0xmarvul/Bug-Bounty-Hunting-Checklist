@@ -30,12 +30,12 @@ html.dark .checklist label {
 }
 
 .checklist label:hover {
-    background-color: rgba(6, 182, 212, 0.08);
+    background-color: rgba(0, 207, 168, 0.08);
     transform: translateX(4px);
 }
 
 html.dark .checklist label:hover {
-    background-color: rgba(34, 211, 238, 0.1);
+    background-color: rgba(0, 207, 168, 0.1);
 }
 
 .checklist input[type="checkbox"] {
@@ -65,55 +65,55 @@ html.dark .checklist label:hover {
 
 html.dark .checklist label::before {
     border-color: #475569;
-    background-color: #1e293b;
+    background-color: #0d1117;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .checklist input[type="checkbox"]:checked ~ label::before,
 .checklist label:has(input[type="checkbox"]:checked)::before {
-    background: linear-gradient(135deg, #06b6d4, #0891b2);
-    border-color: #06b6d4;
+    background: linear-gradient(135deg, #00CFA8, #00a88a);
+    border-color: #00CFA8;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 1.1rem;
-    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.15), 0 4px 12px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 0 4px rgba(0, 207, 168, 0.15), 0 4px 12px rgba(0, 207, 168, 0.3);
     transform: translateY(-50%) scale(1.1);
 }
 
 html.dark .checklist input[type="checkbox"]:checked ~ label::before,
 html.dark .checklist label:has(input[type="checkbox"]:checked)::before {
-    background: linear-gradient(135deg, #22d3ee, #06b6d4);
-    border-color: #22d3ee;
-    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.2), 0 4px 16px rgba(34, 211, 238, 0.4);
+    background: linear-gradient(135deg, #33d9b2, #00CFA8);
+    border-color: #33d9b2;
+    box-shadow: 0 0 0 4px rgba(0, 207, 168, 0.2), 0 4px 16px rgba(0, 207, 168, 0.4);
 }
 
 .checklist input[type="checkbox"]:focus ~ label::before,
 .checklist label:has(input[type="checkbox"]:focus)::before {
-    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.25);
+    box-shadow: 0 0 0 4px rgba(0, 207, 168, 0.25);
 }
 
 html.dark .checklist input[type="checkbox"]:focus ~ label::before,
 html.dark .checklist label:has(input[type="checkbox"]:focus)::before {
-    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.25);
+    box-shadow: 0 0 0 4px rgba(0, 207, 168, 0.25);
 }
 
 .checklist input[type="checkbox"]:checked ~ label,
 .checklist label:has(input[type="checkbox"]:checked) {
-    color: #06b6d4;
+    color: #00CFA8;
     text-decoration: line-through;
-    text-decoration-color: #06b6d4;
+    text-decoration-color: #00CFA8;
     text-decoration-thickness: 2px;
     text-decoration-style: solid;
     opacity: 0.7;
-    background-color: rgba(6, 182, 212, 0.05);
+    background-color: rgba(0, 207, 168, 0.05);
 }
 
 html.dark .checklist input[type="checkbox"]:checked ~ label,
 html.dark .checklist label:has(input[type="checkbox"]:checked) {
-    color: #22d3ee;
-    text-decoration-color: #22d3ee;
-    background-color: rgba(34, 211, 238, 0.08);
+    color: #33d9b2;
+    text-decoration-color: #33d9b2;
+    background-color: rgba(0, 207, 168, 0.08);
 }
 
 .checklist input[type="checkbox"]:checked ~ label::after,
@@ -124,14 +124,14 @@ html.dark .checklist label:has(input[type="checkbox"]:checked) {
     top: 50%;
     transform: translateY(-50%);
     font-size: 1.25rem;
-    color: #06b6d4;
+    color: #00CFA8;
     font-weight: bold;
     animation: checkmark-pop 0.3s ease;
 }
 
 html.dark .checklist input[type="checkbox"]:checked ~ label::after,
 html.dark .checklist label:has(input[type="checkbox"]:checked)::after {
-    color: #22d3ee;
+    color: #33d9b2;
 }
 
 @keyframes checkmark-pop {
@@ -210,17 +210,17 @@ html.dark .difficulty-badge.hard {
 .task-tip {
     margin-top: 0.5rem;
     padding: 0.75rem;
-    background-color: #f0f9ff;
-    border-left: 3px solid #0ea5e9;
+    background-color: rgba(0, 207, 168, 0.06);
+    border-left: 3px solid #00CFA8;
     border-radius: 0.375rem;
     font-size: 0.875rem;
-    color: #0c4a6e;
+    color: #0a3d34;
 }
 
 html.dark .task-tip {
-    background-color: #082f49;
-    border-left-color: #38bdf8;
-    color: #bae6fd;
+    background-color: rgba(0, 207, 168, 0.08);
+    border-left-color: #00CFA8;
+    color: #b3f0e6;
 }
 
 .task-tip strong {
@@ -234,8 +234,8 @@ html.dark .task-tip {
 .resource-link {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: #e0f2fe;
-    color: #0369a1;
+    background-color: rgba(0, 207, 168, 0.1);
+    color: #008a70;
     border-radius: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
@@ -245,32 +245,32 @@ html.dark .task-tip {
 }
 
 .resource-link:hover {
-    background-color: #0ea5e9;
+    background-color: #00CFA8;
     color: white;
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
-    border-color: #0ea5e9;
+    box-shadow: 0 10px 20px rgba(0, 207, 168, 0.3);
+    border-color: #00CFA8;
 }
 
 html.dark .resource-link {
-    background-color: #0c4a6e;
-    color: #7dd3fc;
+    background-color: rgba(0, 207, 168, 0.12);
+    color: #66dfc9;
 }
 
 html.dark .resource-link:hover {
-    background-color: #0369a1;
+    background-color: #00a88a;
     color: white;
-    box-shadow: 0 10px 20px rgba(3, 105, 161, 0.4);
-    border-color: #38bdf8;
+    box-shadow: 0 10px 20px rgba(0, 207, 168, 0.4);
+    border-color: #33d9b2;
 }
 
 .timer-display {
     font-weight: 600;
-    color: #06b6d4;
+    color: #00CFA8;
 }
 
 html.dark .timer-display {
-    color: #22d3ee;
+    color: #33d9b2;
 }
 
 .timer-btn {
@@ -325,7 +325,7 @@ html.dark .timer-display {
 }
 
 .tasks-container {
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
                 opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     max-height: 0;
@@ -344,12 +344,12 @@ html.dark .timer-display {
 }
 
 .task-group:hover {
-    background-color: rgba(6, 182, 212, 0.03);
+    background-color: rgba(0, 207, 168, 0.03);
     transform: translateX(2px);
 }
 
 html.dark .task-group:hover {
-    background-color: rgba(34, 211, 238, 0.05);
+    background-color: rgba(0, 207, 168, 0.05);
 }
 
 ::-webkit-scrollbar {
@@ -363,26 +363,26 @@ html.dark .task-group:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #06b6d4, #0891b2);
+    background: linear-gradient(180deg, #00CFA8, #00a88a);
     border-radius: 10px;
     border: 2px solid #e2e8f0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #0891b2, #0e7490);
+    background: linear-gradient(180deg, #00a88a, #007a60);
 }
 
 html.dark ::-webkit-scrollbar-track {
-    background: #1e293b;
+    background: #0d1117;
 }
 
 html.dark ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #22d3ee, #06b6d4);
-    border: 2px solid #1e293b;
+    background: linear-gradient(180deg, #33d9b2, #00CFA8);
+    border: 2px solid #0d1117;
 }
 
 html.dark ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #06b6d4, #0891b2);
+    background: linear-gradient(180deg, #00CFA8, #00a88a);
 }
 
 #resetConfirmationModal {
@@ -408,11 +408,11 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 }
 
 #progressBar {
-    box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+    box-shadow: 0 0 10px rgba(0, 207, 168, 0.5);
 }
 
 html.dark #progressBar {
-    box-shadow: 0 0 15px rgba(34, 211, 238, 0.6);
+    box-shadow: 0 0 15px rgba(0, 207, 168, 0.6);
 }
 
 button {
